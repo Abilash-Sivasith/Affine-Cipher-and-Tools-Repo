@@ -17,6 +17,6 @@ def find_letter_frequency(text):
     sorted_letter_frequency = sorted(count_of_letter.items(), key=lambda x:x[1], reverse= True)
     return sorted_letter_frequency
 
-
+# TESTING
 text_string = 'Y F X M P C E S P Z C J T D F D P Q F W Q Z C P Y N T A S P C T Y R X P D D L R P D'
 print(find_letter_frequency(text_string))
