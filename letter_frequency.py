@@ -5,8 +5,6 @@ With the knowlege of the most common frequency an affine cipher can be easily de
 
 """
 
-
-
 def find_letter_frequency(text):
     """finds the frequency of letters"""
     count_of_letter = dict()
