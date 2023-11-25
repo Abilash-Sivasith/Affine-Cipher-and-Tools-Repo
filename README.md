@@ -6,4 +6,4 @@ This repo includes:
 - function to find greatest common divisor
 
 Future Features
-- random a and b guesser
+- random a and b guesser 
