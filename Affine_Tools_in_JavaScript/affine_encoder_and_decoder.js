@@ -39,12 +39,36 @@ function findGreatestCommonDivisor(a,b){
         return a
         
     } else {
-        gcd = findGreatestCommonDivisor(b % a, a)
+         let gcd = findGreatestCommonDivisor(b % a, a)
         return gcd  
     }
 }
 
 
 // TESTING
-let text = findGreatestCommonDivisor(8,4)
-console.log(text) // should return 4
+
+// let text = findGreatestCommonDivisor(8,4)
+// console.log(text) // should return 4
+
+function linearCombination(a,b){
+    if (a == 0){
+        return 0, 1;
+    }
+    if (b == 0){
+        return 1, 0;
+    } else {
+            var xLotsOfA;
+            var xLotsOfB;
+            var calculation;
+            var gcd;
+            xLotsOfB, xLotsOfA = linearCombination(b % a, a)
+            gcd = findGreatestCommonDivisor(a,b);
+            calculation = xLotsOfA - Math.floor(b / a) * xLotsOfB;
+            console.log(gcd + ' = (' + calculation + ') + (' + b + ' * ' + xLotsOfB + ')') 
+            return calculation, xLotsOfB
+            }
+    }
+
+
+let stuff = linearCombination(2,4);
+console.log(stuff)
