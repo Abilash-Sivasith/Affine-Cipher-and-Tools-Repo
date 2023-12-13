@@ -1,4 +1,4 @@
-"""Provided a secret test, the code can both decrpyt and encypt text"""
+"""Provided a secret text, the code can both decrpyt and encypt text"""
 
 import doctest
 
