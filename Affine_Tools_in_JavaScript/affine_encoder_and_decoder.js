@@ -97,4 +97,6 @@ function getNumfromLetter(letter){
     }
 }
 
-getNumfromLetter('a')
+// TESTING - getNumfromLetter function 
+let testingGetNumFromLetterFunction = getNumfromLetter('a');
+console.log(testingGetNumFromLetterFunction)
