@@ -64,18 +64,24 @@ function linearCombination(a,b){
     }
 
 // TESTING - LinearCombination function
-// let stuff = linearCombination(2,4);
-// console.log(stuff)
+// let testingLinearCombination = linearCombination(2,4);
+// console.log(testingLinearCombination)
 
 function affineEncoder(a, b, num){
-    /* encodes the provided num using the a*num + b formula*/
+    /* encodes the provided num using the a*num + b formula (the num is being encoded) */
     /* assumes that the user only uses the 26 letters in the english alphabet */
     var gcd = findGreatestCommonDivisor(a, 26);
     if (gcd != 1){
-        return 'The "a" provided will not work as gcd(' + a + '26) != 1'
+        return 'The "a" provided will not work as gcd(' + a + ', 26) != 1'
     } else {
         var encoded = a * num + b;
         return encoded
     }
-
 }
+
+// TESTING - affineEncoder function
+// let testingAffineEncoder = affineEncoder(3, 8, 5)
+// console.log(testingAffineEncoder) 
+
+// let testingAffineEncoderWhenGCDNotEqualOne = affineEncoder(18, 1, 5)
+// console.log(testingAffineEncoderWhenGCDNotEqualOne)
