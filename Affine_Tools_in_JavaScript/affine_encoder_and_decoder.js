@@ -108,6 +108,22 @@ function isValidLetter(value) {
     return /^[a-zA-Z]$/.test(value);
 }
 
+function getLetterProvidedNum(providedNum){
+    /*gets the corresponding letter from the provded num*/
+    for (let key in alphabetMapping){
+        if (providedNum == alphabetMapping[key]){
+            let letterToReturn = key;
+            return letterToReturn;
+        }
+    }
+    return null
+}
+
+// TESTING - hetLetterProvdedNum function
+
+let testingGetLetterProvidedNum = getLetterProvidedNum(2)
+console.log(testingGetLetterProvidedNum)
+
 function encodeSentance(plainText, a, b){
     /* encodes the provided sentance */
     let listOfLettersToEncode = [];
@@ -123,7 +139,8 @@ function encodeSentance(plainText, a, b){
         let numLetter = numericalLetterValue(listOfLettersToEncode[i])
         let encodedLetterValue = affineEncoder(a,b,numLetter)
         if (isinstance(encodedLetterValue, num) == true){
-            return null ///////////////////////////////////////////////////
+            encodedLetterValue = encodedLetterValue % 26;
+            let encoderLetter;
         } 
         else {
             return 'Fail, this is becaise your choise of "a" does not have an inverse in modulo 26'  
