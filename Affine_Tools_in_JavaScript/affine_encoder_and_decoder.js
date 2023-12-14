@@ -43,8 +43,6 @@ function findGreatestCommonDivisor(a,b){
         return gcd  
     }
 }
-
-
 // TESTING
 
 // let text = findGreatestCommonDivisor(8,4)
@@ -52,21 +50,18 @@ function findGreatestCommonDivisor(a,b){
 
 function linearCombination(a,b){
     if (a == 0){
-        return 0, 1;
-    }
-    if (b == 0){
-        return 1, 0;
-    } else {
-            var xLotsOfA;
-            var xLotsOfB;
-            var calculation;
-            var gcd;
-            xLotsOfB, xLotsOfA = linearCombination(b % a, a)
-            gcd = findGreatestCommonDivisor(a,b);
-            calculation = xLotsOfA - Math.floor(b / a) * xLotsOfB;
-            console.log(gcd + ' = (' + calculation + ') + (' + b + ' * ' + xLotsOfB + ')') 
+        return [0, 1];
+        }
+    else if (b == 0){
+        return [1, 0];
+        } 
+    else {
+            var [xLotsOfB , xLotsOfA] = linearCombination(b % a, a);
+            var calculation = xLotsOfA - Math.floor(b / a) * xLotsOfB;
+            var gcd = findGreatestCommonDivisor(a,b);
+            console.log(gcd + ' = (' + calculation + ' * ' + a +') + (' + b + ' * ' + xLotsOfB + ')') 
             return calculation, xLotsOfB
-            }
+        }
     }
 
 

@@ -56,6 +56,8 @@ def linear_combinations(a,b, visualizer = False):
             print(f'{gcd} = ({a} * {x_lots_of_a - (b // a) * x_lots_of_b}) + ({b} * {x_lots_of_b})')
         return (x_lots_of_a - (b // a) * x_lots_of_b ), x_lots_of_b
     
+linear_combinations(52,16, visualizer= True)
+
 
 def affine_encoder(a,b,num):
     '''encodes the provided num using the a*num + b formula'''
