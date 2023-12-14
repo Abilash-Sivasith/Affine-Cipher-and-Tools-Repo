@@ -86,7 +86,7 @@ function affineEncoder(a, b, num){
 // let testingAffineEncoderWhenGCDNotEqualOne = affineEncoder(18, 1, 5)
 // console.log(testingAffineEncoderWhenGCDNotEqualOne)
 
-function getNumfromLetter(letter){
+function getNumFromLetter(letter){
     /* gets the numerical value for the letter provided */
     let letterToWorkOn = letter.toLowerCase();
     for (let key in alphabetMapping){
@@ -95,8 +95,43 @@ function getNumfromLetter(letter){
             return numericalLetterValue
         }
     }
+    return null
 }
 
 // TESTING - getNumfromLetter function 
-let testingGetNumFromLetterFunction = getNumfromLetter('a');
-console.log(testingGetNumFromLetterFunction)
+// let testingGetNumFromLetterFunction = getNumFromLetter('a');
+// console.log(testingGetNumFromLetterFunction)
+
+
+function isValidLetter(value) {
+    // Convert the value to lowercase and check if it's a single character in the range 'a' to 'z'
+    return /^[a-zA-Z]$/.test(value);
+}
+
+function encodeSentance(plainText, a, b){
+    /* encodes the provided sentance */
+    let listOfLettersToEncode = [];
+    let encodedString = 'q';
+    for (let i = 0; i < plainText.length; i++){
+        if (isValidLetter(plainText[i] == true)){
+            let letterToPush = plainText[i].toLowerCase();
+            listOfLettersToEncode.push(letterToPush)
+        }
+    }
+    // let listOfLettersToEncodeLower = listOfLettersToEncode.toLowerCase();
+    for (let i = 0; i < listOfLettersToEncode; i++){
+        let numLetter = numericalLetterValue(listOfLettersToEncode[i])
+        let encodedLetterValue = affineEncoder(a,b,numLetter)
+        if (isinstance(encodedLetterValue, num) == true){
+            return null ///////////////////////////////////////////////////
+        } 
+        else {
+            return 'Fail, this is becaise your choise of "a" does not have an inverse in modulo 26'  
+        }
+    // let returnStatement = encodedString.toUpperCase();
+    return encodedString
+    }
+}
+let stringToTest = 'Hello'
+let testingEncodeStringFUnction = encodeSentance(stringToTest, 3,5)
+console.log(testingEncodeStringFUnction)
