@@ -43,8 +43,7 @@ function findGreatestCommonDivisor(a,b){
         return gcd  
     }
 }
-// TESTING
-
+// TESTING - findGreatestCommonDivisor function 
 // let text = findGreatestCommonDivisor(8,4)
 // console.log(text) // should return 4
 
@@ -64,6 +63,19 @@ function linearCombination(a,b){
         }
     }
 
+// TESTING - LinearCombination function
+// let stuff = linearCombination(2,4);
+// console.log(stuff)
 
-let stuff = linearCombination(2,4);
-console.log(stuff)
+function affineEncoder(a, b, num){
+    /* encodes the provided num using the a*num + b formula*/
+    /* assumes that the user only uses the 26 letters in the english alphabet */
+    var gcd = findGreatestCommonDivisor(a, 26);
+    if (gcd != 1){
+        return 'The "a" provided will not work as gcd(' + a + '26) != 1'
+    } else {
+        var encoded = a * num + b;
+        return encoded
+    }
+
+}
