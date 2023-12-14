@@ -120,9 +120,8 @@ function getLetterProvidedNum(providedNum){
 }
 
 // TESTING - hetLetterProvdedNum function
-
-let testingGetLetterProvidedNum = getLetterProvidedNum(2)
-console.log(testingGetLetterProvidedNum)
+// let testingGetLetterProvidedNum = getLetterProvidedNum(2)
+// console.log(testingGetLetterProvidedNum)
 
 function encodeSentance(plainText, a, b){
     /* encodes the provided sentance */
@@ -149,6 +148,9 @@ function encodeSentance(plainText, a, b){
     return encodedString
     }
 }
-let stringToTest = 'Hello'
-let testingEncodeStringFUnction = encodeSentance(stringToTest, 3,5)
-console.log(testingEncodeStringFUnction)
+
+
+// TESTING - encodeSentance function 
+// let stringToTest = 'Hello'
+// let testingEncodeStringFUnction = encodeSentance(stringToTest, 3,5)
+// console.log(testingEncodeStringFUnction)
