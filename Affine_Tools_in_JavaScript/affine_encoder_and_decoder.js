@@ -85,3 +85,16 @@ function affineEncoder(a, b, num){
 
 // let testingAffineEncoderWhenGCDNotEqualOne = affineEncoder(18, 1, 5)
 // console.log(testingAffineEncoderWhenGCDNotEqualOne)
+
+function getNumfromLetter(letter){
+    /* gets the numerical value for the letter provided */
+    let letterToWorkOn = letter.toLowerCase();
+    for (let key in alphabetMapping){
+        if (letterToWorkOn == key){
+            let numericalLetterValue = alphabetMapping[key]
+            return numericalLetterValue
+        }
+    }
+}
+
+getNumfromLetter('a')
