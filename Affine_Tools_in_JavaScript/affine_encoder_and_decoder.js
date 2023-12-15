@@ -126,31 +126,30 @@ function getLetterProvidedNum(providedNum){
 function encodeSentance(plainText, a, b){
     /* encodes the provided sentance */
     let listOfLettersToEncode = [];
-    let encodedString = 'q';
+    let encodedString = '';
     for (let i = 0; i < plainText.length; i++){
-        if (isValidLetter(plainText[i] == true)){
+        if (isValidLetter(plainText[i])== true){
             let letterToPush = plainText[i].toLowerCase();
             listOfLettersToEncode.push(letterToPush)
         }
     }
-    // let listOfLettersToEncodeLower = listOfLettersToEncode.toLowerCase();
-    for (let i = 0; i < listOfLettersToEncode; i++){
-        let numLetter = numericalLetterValue(listOfLettersToEncode[i])
+    for (let j = 0; j < listOfLettersToEncode.length; j++){
+        let numLetter = getNumFromLetter(listOfLettersToEncode[j])
         let encodedLetterValue = affineEncoder(a,b,numLetter)
-        if (isinstance(encodedLetterValue, num) == true){
+        if (Number.isInteger(encodedLetterValue) == true){
             encodedLetterValue = encodedLetterValue % 26;
-            let encoderLetter;
+            let encodedLetter = getLetterProvidedNum(encodedLetterValue);
+            encodedString = encodedString + String(encodedLetter).toUpperCase() + ' ' 
         } 
         else {
             return 'Fail, this is becaise your choise of "a" does not have an inverse in modulo 26'  
         }
-    // let returnStatement = encodedString.toUpperCase();
-    return encodedString
     }
+    return encodedString
 }
 
 
 // TESTING - encodeSentance function 
-// let stringToTest = 'Hello'
-// let testingEncodeStringFUnction = encodeSentance(stringToTest, 3,5)
-// console.log(testingEncodeStringFUnction)
+let stringToTest = 'Hello';
+let testingEncodeStringFUnction = encodeSentance(stringToTest, 3,5);
+console.log(testingEncodeStringFUnction);
