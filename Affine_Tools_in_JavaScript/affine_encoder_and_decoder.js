@@ -150,6 +150,6 @@ function encodeSentance(plainText, a, b){
 
 
 // TESTING - encodeSentance function 
-let stringToTest = 'Hello';
-let testingEncodeStringFUnction = encodeSentance(stringToTest, 3,5);
-console.log(testingEncodeStringFUnction);
+// let stringToTest = 'Hello';
+// let testingEncodeStringFUnction = encodeSentance(stringToTest, 3,5);
+// console.log(testingEncodeStringFUnction);
