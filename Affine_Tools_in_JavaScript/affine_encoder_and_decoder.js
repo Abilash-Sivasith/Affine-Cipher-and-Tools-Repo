@@ -55,11 +55,9 @@ function linearCombination(a,b){
         return [1, 0];
         } 
     else {
-            var [xLotsOfB , xLotsOfA] = linearCombination(b % a, a);
-            var calculation = xLotsOfA - Math.floor(b / a) * xLotsOfB;
-            var gcd = findGreatestCommonDivisor(a,b);
-            console.log(gcd + ' = (' + calculation + ' * ' + a +') + (' + b + ' * ' + xLotsOfB + ')') 
-            return calculation, xLotsOfB
+            let [xLotsOfB , xLotsOfA] = linearCombination(b % a, a);
+            let calculation = xLotsOfA - Math.floor(b / a) * xLotsOfB;
+            return [calculation, xLotsOfB]
         }
     }
 
@@ -148,8 +146,34 @@ function encodeSentance(plainText, a, b){
     return encodedString
 }
 
-
 // TESTING - encodeSentance function 
 // let stringToTest = 'Hello';
 // let testingEncodeStringFUnction = encodeSentance(stringToTest, 3,5);
 // console.log(testingEncodeStringFUnction);
+
+function textDecryption(secretText, a, b){
+    // decrpyrs the provided test given a known 'a' and 'b'
+    let [xLotsOfA, xLotsOfB] = linearCombination(a, 26)
+    let aInverse = xLotsOfA % 26;
+    let listOfLettersToDecode = [];
+    let decodedString = '';
+    for (let i = 0; i < secretText.length; i++){
+        listOfLettersToDecode.push(secretText[i])
+    }
+    for (let j = 0; j < listOfLettersToDecode.length; j++){
+        let letterToEncodedNum = getNumFromLetter(listOfLettersToDecode[j]);
+        let decodedNum = (aInverse * ( letterToEncodedNum - b)) % 26
+        if (decodedNum < 0){
+            decodedNum += 26
+        }
+        let realLetter = getLetterProvidedNum(decodedNum)
+        decodedString = decodedString + String(realLetter).toUpperCase() + ' '
+    }
+    return decodedString
+}
+
+// TESTING - textDecryption function 
+
+// let testingString = 'ARMMV'
+// let testingTextDecryptionFunction = textDecryption(testingString, 3, 5) 
+// console.log(testingTextDecryptionFunction)
